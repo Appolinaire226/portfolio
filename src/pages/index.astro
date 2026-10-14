@@ -1,11 +1,47 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import { profile } from "../data/profile.ts";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title={`${profile.name} | Networks and Systems`}
+  description="Portfolio of Appolinaire Adouabou, Networks and Systems student."
+>
+  <Header />
+
+  <main class="mx-auto max-w-6xl px-6 pb-16 sm:px-10">
+    <Hero
+      name={profile.name}
+      title={profile.title}
+      location={profile.location}
+      internshipPeriod={profile.internshipPeriod}
+      cvUrl="/cv/appolinaire-adouabou-cv.pdf"
+      githubUrl={profile.github}
+      email={profile.email}
+      profileImage="/images/profile.webp"
+    />
+    <section class="border-t border-slate-800 py-20">
+      <div class="max-w-3xl">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400"
+        >
+         Discover more
+       </p>
+
+       <h2 class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+         Explore my background and work.
+       </h2>
+
+        <p class="mt-6 text-lg leading-8 text-slate-400">
+          Learn more about my academic background, technical skills, certifications
+          and projects in networks, Linux systems and cybersecurity.
+       </p>
+     </div>
+   </section>
+  </main>
+
+  <Footer />
 </Layout>

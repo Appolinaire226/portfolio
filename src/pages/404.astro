@@ -1,0 +1,39 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Page not found | Appolinaire Adouabou"
+  description="The requested page could not be found."
+>
+  <Header />
+
+  <main
+    class="mx-auto flex min-h-[calc(100vh-180px)] max-w-6xl flex-col items-center justify-center px-6 py-20 text-center sm:px-10"
+  >
+    <p
+      class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400"
+    >
+      Error 404
+    </p>
+
+    <h1 class="mt-5 text-6xl font-black tracking-tight text-white sm:text-8xl">
+      Page not found
+    </h1>
+
+    <p class="mt-6 max-w-xl text-lg leading-8 text-slate-400">
+      The page you are looking for does not exist or may have been moved.
+    </p>
+
+    <a
+      href="/"
+      class="mt-8 rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+    >
+      Back to home
+    </a>
+  </main>
+
+  <Footer />
+</Layout>

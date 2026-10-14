@@ -1,0 +1,96 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import { profile } from "../data/profile.ts";
+
+const interests = [
+  "Computer networks and protocols",
+  "Linux system administration",
+  "Cybersecurity fundamentals",
+  "Infrastructure monitoring",
+  "Technical documentation",
+];
+
+const values = [
+  "Learning by doing",
+  "Documenting practical work",
+  "Building structured systems",
+  "Improving through experimentation",
+];
+---
+
+<Layout
+  title="About | Appolinaire Adouabou"
+  description="About Appolinaire Adouabou, Networks and Systems student in Burkina Faso."
+>
+  <Header />
+
+  <main class="mx-auto max-w-6xl px-6 py-20 sm:px-10">
+    <section>
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400"
+      >
+        About
+      </p>
+
+      <h1 class="mt-4 text-5xl font-bold tracking-tight text-white sm:text-7xl">
+        I build skills through practical work.
+      </h1>
+
+      <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+        I am a third-year student in <strong class="text-slate-200">
+          {profile.study}
+        </strong>, currently based in {profile.location}. I am passionate about
+        computer networks, Linux systems, infrastructure monitoring and
+        cybersecurity.
+      </p>
+    </section>
+
+    <section class="mt-16 grid gap-8 lg:grid-cols-2">
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-8">
+        <h2 class="text-2xl font-semibold text-white">My interests</h2>
+
+        <ul class="mt-6 space-y-3 text-slate-300">
+          {interests.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 rounded-full bg-cyan-400"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-8">
+        <h2 class="text-2xl font-semibold text-white">What drives me</h2>
+
+        <ul class="mt-6 space-y-3 text-slate-300">
+          {values.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 rounded-full bg-green-400"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </section>
+
+    <section class="mt-16 rounded-xl border border-slate-800 bg-slate-900 p-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
+        Objective
+      </p>
+
+      <h2 class="mt-4 text-3xl font-bold text-white">
+        Looking for a professional internship
+      </h2>
+
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-400">
+        I am currently looking for an internship opportunity in Burkina Faso
+        from March to April 2027, where I can put my technical knowledge into
+        practice and continue learning in a real professional environment.
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

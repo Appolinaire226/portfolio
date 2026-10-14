@@ -1,0 +1,39 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-slate-800">
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-5 px-6 py-8 text-sm text-slate-500 sm:px-10 md:flex-row md:items-center md:justify-between"
+  >
+    <p>
+      © {year} Appolinaire Adouabou. All rights reserved.
+    </p>
+
+    <div class="flex flex-wrap gap-5">
+      <a
+        href="https://github.com/Appolinaire226"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-cyan-400"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="mailto:contact@appolinaire.me"
+        class="transition hover:text-cyan-400"
+      >
+        Email
+      </a>
+
+      <a
+        href="/cv/appolinaire-adouabou-cv.pdf"
+        download
+        class="transition hover:text-cyan-400"
+      >
+        Download CV
+      </a>
+    </div>
+  </div>
+</footer>

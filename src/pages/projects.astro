@@ -1,0 +1,47 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects.ts";
+---
+
+<Layout
+  title="Projects | Appolinaire Adouabou"
+  description="Technical projects by Appolinaire Adouabou, Networks and Systems student."
+>
+  <Header />
+
+  <main class="mx-auto max-w-6xl px-6 py-20 sm:px-10">
+    <section>
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400"
+      >
+        Projects
+      </p>
+
+      <h1 class="mt-4 text-5xl font-bold tracking-tight text-white sm:text-7xl">
+        Technical work and experiments.
+      </h1>
+
+      <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+        This page gathers the projects, technical labs and experiments I am
+        building to develop my skills in networks, Linux systems and
+        cybersecurity.
+      </p>
+    </section>
+
+    <section class="mt-16 grid gap-6">
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          status={project.status}
+          description={project.description}
+          tags={project.tags}
+        />
+      ))}
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

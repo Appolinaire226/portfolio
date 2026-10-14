@@ -1,0 +1,52 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import { skillGroups } from "../data/skills.ts";
+---
+
+<Layout
+  title="Skills | Appolinaire Adouabou"
+  description="Skills of Appolinaire Adouabou in networking, Linux, cybersecurity and system administration."
+>
+  <Header />
+
+  <main class="mx-auto max-w-6xl px-6 py-20 sm:px-10">
+    <section>
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400"
+      >
+        Skills
+      </p>
+
+      <h1 class="mt-4 text-5xl font-bold tracking-tight text-white sm:text-7xl">
+        Technical skills I am building.
+      </h1>
+
+      <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+        I am developing a practical foundation in networking, Linux
+        administration, security and technical tooling through projects and
+        labs.
+      </p>
+    </section>
+
+    <section class="mt-16 grid gap-8 md:grid-cols-2">
+      {skillGroups.map((group) => (
+        <article class="rounded-xl border border-slate-800 bg-slate-900 p-8">
+          <h2 class="text-2xl font-semibold text-white">{group.title}</h2>
+
+          <ul class="mt-6 space-y-3 text-slate-300">
+            {group.items.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 rounded-full bg-cyan-400"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

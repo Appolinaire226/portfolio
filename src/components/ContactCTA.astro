@@ -1,0 +1,29 @@
+---
+interface Props {
+  email: string;
+}
+
+const { email } = Astro.props;
+---
+
+<section id="contact" class="border-t border-slate-800 py-24">
+  <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
+    04 — Contact
+  </p>
+
+  <h2 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+    Let us discuss an internship opportunity.
+  </h2>
+
+  <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
+    If you would like to discuss an internship opportunity or a technical
+    project, feel free to contact me.
+  </p>
+
+  <a
+    href={`mailto:${email}`}
+    class="mt-8 inline-block text-xl font-semibold text-cyan-400 transition hover:text-cyan-300"
+  >
+    {email}
+  </a>
+</section>

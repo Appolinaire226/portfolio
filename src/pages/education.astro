@@ -1,0 +1,144 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import CertificationCard from "../components/CertificationCard.astro";
+import { certifications } from "../data/certifications.ts";
+import { profile } from "../data/profile.ts";
+
+const education = [
+  {
+    title: "Bachelor’s Degree in Networks and Systems",
+    institution: "NAZI BONI University, Burkina Faso",
+    period: "2024 — Present",
+    description:
+      "Academic training focused on computer networks, Linux systems, system administration, cybersecurity and infrastructure technologies.",
+  },
+];
+
+const academicAreas = [
+  "Computer networks and communication protocols",
+  "Network administration and troubleshooting",
+  "Linux systems and system administration",
+  "Cybersecurity fundamentals",
+  "Infrastructure monitoring",
+  "Technical documentation",
+];
+---
+
+<Layout
+  title="Education | Appolinaire Adouabou"
+  description="Education, academic background and certifications of Appolinaire Adouabou."
+>
+  <Header />
+
+  <main class="mx-auto max-w-6xl px-6 py-20 sm:px-10">
+    <section>
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400"
+      >
+        Education
+      </p>
+
+      <h1 class="mt-4 text-5xl font-bold tracking-tight text-white sm:text-7xl">
+        My academic background.
+      </h1>
+
+      <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+        My academic journey focuses on networks, systems administration,
+        cybersecurity and the practical technologies used to build and maintain
+        reliable infrastructures.
+      </p>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-3xl font-bold text-white">Academic background</h2>
+
+      <div class="mt-8 space-y-6">
+        {education.map((item) => (
+          <article class="rounded-xl border border-slate-800 bg-slate-900 p-8">
+            <div
+              class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"
+            >
+              <div>
+                <p
+                  class="text-sm font-semibold uppercase tracking-wider text-cyan-400"
+                >
+                  Current education
+                </p>
+
+                <h3 class="mt-3 text-2xl font-semibold text-white">
+                  {item.title}
+                </h3>
+
+                <p class="mt-2 text-lg text-slate-300">
+                  {item.institution}
+                </p>
+              </div>
+
+              <span class="text-sm text-slate-500">
+                {item.period}
+              </span>
+            </div>
+
+            <p class="mt-6 max-w-3xl leading-8 text-slate-400">
+              {item.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-3xl font-bold text-white">Academic areas</h2>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {academicAreas.map((area) => (
+          <div
+            class="rounded-xl border border-slate-800 bg-slate-900 p-5 text-slate-300"
+          >
+            <div class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400"></span>
+              <span>{area}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400"
+          >
+            Certifications
+          </p>
+
+          <h2 class="mt-3 text-3xl font-bold text-white">
+            Additional learning
+          </h2>
+        </div>
+
+        <p class="max-w-md text-slate-400">
+          Certifications that complement my academic training in networking and
+          cybersecurity.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        {certifications.map((certification) => (
+          <CertificationCard
+            title={certification.title}
+            issuer={certification.issuer}
+            date={certification.date}
+            description={certification.description}
+            certificateUrl={certification.certificateUrl}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

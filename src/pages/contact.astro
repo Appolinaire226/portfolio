@@ -1,0 +1,63 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import { profile } from "../data/profile.ts";
+
+const email = profile.email;
+const github = profile.github;
+---
+
+<Layout
+  title="Contact | Appolinaire Adouabou"
+  description="Contact Appolinaire Adouabou for internship offers or collaboration opportunities."
+>
+  <Header />
+
+  <main class="mx-auto max-w-6xl px-6 py-20 sm:px-10">
+    <section>
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400"
+      >
+        Contact
+      </p>
+
+      <h1 class="mt-4 text-5xl font-bold tracking-tight text-white sm:text-7xl">
+        Let’s talk.
+      </h1>
+
+      <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+        I am available for internship opportunities, technical discussions and
+        collaborative projects in networking, Linux systems and cybersecurity.
+      </p>
+    </section>
+
+    <section class="mt-16 grid gap-8 md:grid-cols-2">
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-8">
+        <h2 class="text-2xl font-semibold text-white">Email</h2>
+
+        <a
+          href={`mailto:${email}`}
+          class="mt-5 inline-block text-lg text-cyan-400 transition hover:text-cyan-300"
+        >
+          {email}
+        </a>
+      </article>
+
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-8">
+        <h2 class="text-2xl font-semibold text-white">GitHub</h2>
+
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-block text-lg text-cyan-400 transition hover:text-cyan-300"
+        >
+          github.com/Appolinaire226
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

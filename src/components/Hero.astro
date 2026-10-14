@@ -1,0 +1,145 @@
+---
+interface Props {
+  name: string;
+  title: string;
+  location: string;
+  internshipPeriod: string;
+  cvUrl: string;
+  githubUrl?: string;
+  linkedinUrl?: string;
+  email?: string;
+  profileImage?: string;
+}
+
+const {
+  name,
+  title,
+  location,
+  internshipPeriod,
+  cvUrl,
+  githubUrl = "https://github.com/Appolinaire226",
+  linkedinUrl,
+  email = "contact@appolinaire.me",
+  profileImage = "/images/profile.webp",
+} = Astro.props;
+---
+
+<section
+  class="flex min-h-[calc(100vh-90px)] flex-col justify-center py-16 lg:flex-row lg:items-center lg:gap-16"
+>
+  <div class="max-w-5xl flex-1">
+    <p
+      class="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400"
+    >
+      Personal portfolio
+    </p>
+
+    <h1
+      class="text-6xl font-black tracking-[-0.06em] text-white sm:text-8xl"
+    >
+      {name}
+    </h1>
+
+    <h2 class="mt-6 text-2xl font-medium text-slate-300 sm:text-4xl">
+      {title}
+    </h2>
+
+    <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-400 sm:text-xl">
+      I am developing my skills in computer networks, Linux, systems
+      administration and cybersecurity through practical and documented
+      projects.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a
+        href="#projects"
+        class="rounded-lg bg-cyan-400 px-6 py-3 text-base font-semibold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.35)] transition hover:bg-cyan-300"
+      >
+        View my projects
+      </a>
+
+      <a
+        href={cvUrl}
+        download
+        class="rounded-lg border border-slate-600 px-6 py-3 text-base font-semibold text-slate-200 transition hover:border-cyan-400 hover:text-cyan-400"
+      >
+        Download CV
+      </a>
+
+      <a
+        href="#contact"
+        class="rounded-lg border border-cyan-400 px-6 py-3 text-base font-semibold text-cyan-400 transition hover:bg-cyan-400/10"
+      >
+        Contact me
+      </a>
+    </div>
+
+    <div class="mt-10 flex flex-wrap items-center gap-3 text-lg text-slate-400">
+      <span
+        class="h-3 w-3 rounded-full bg-green-400 shadow-[0_0_14px_rgba(74,222,128,0.8)]"
+        aria-hidden="true"
+      ></span>
+
+      <span>Looking for an internship in {location}</span>
+
+      <span class="text-slate-500" aria-hidden="true">·</span>
+
+      <span>{internshipPeriod}</span>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-5 text-sm font-medium">
+      <a
+        href={githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-slate-400 transition hover:text-cyan-400"
+      >
+        GitHub →
+      </a>
+
+      {
+        linkedinUrl && (
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-400 transition hover:text-cyan-400"
+          >
+            LinkedIn →
+          </a>
+        )
+      }
+
+      {
+        email && (
+          <a
+            href={`mailto:${email}`}
+            class="text-slate-400 transition hover:text-cyan-400"
+          >
+            Email →
+          </a>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="mt-12 flex justify-center lg:mt-0 lg:w-72 lg:shrink-0">
+    <div
+      class="relative rounded-full border border-cyan-400/30 p-2 shadow-[0_0_60px_rgba(34,211,238,0.15)]"
+    >
+      <div
+        class="absolute inset-0 rounded-full bg-cyan-400/10 blur-2xl"
+        aria-hidden="true"
+      ></div>
+
+      <img
+        src={profileImage}
+        alt={`Portrait of ${name}`}
+        width="288"
+        height="288"
+        loading="eager"
+        class="relative h-64 w-64 rounded-full object-cover sm:h-72 sm:w-72"
+      />
+    </div>
+  </div>
+</section>
